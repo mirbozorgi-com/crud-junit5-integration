@@ -1,5 +1,17 @@
 # Product Management Coding Example
 
+
+## This Project include:
+
+- Unit test with Junit5 (repository,service,controller)
+- integration test
+- Docker
+- Elk integration
+- Monitoring integration
+- 2 model for persisting data : 1-JPA 2- HQL : hibernate query language
+- Profiling in the Spring boot
+- Error handling
+
 Following task is implemented:
 
 - Create a REST API that provides CRUD operations for a product which is stored in the `products`
@@ -9,7 +21,7 @@ Following task is implemented:
 - Provide a unit test for updating a product.
 - API calls that are able to alter data should be secured via Spring Security.
     - GET calls should return data without authorization.
-    
+
 - DockerFile and docker-compose.yml added in order to run application with docker. For building the
   image, please execute this command in the root
   directory : `sudo docker build --no-cache -t shop/mirbozorgi:1.0.0 .`
@@ -78,3 +90,5 @@ Following task is implemented:
   ]
   }`
   http status : `400`
+
+
