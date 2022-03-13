@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  app:
+    image: shop/mirbozorgi:1.0.0
+    networks:
+      - mainnet
+    ports:
+      - "8080:8080"
+    environment:
+      SHOP_MIRBOZORGI_APP_PORT: 8080
+      SHOP_MIRBOZORGI_ACTIVE_PROFILE: 'jpa'
+      SHOP_MIRBOZORGI_JPA_DLL_AUTO: 'none'
+      SHOP_MIRBOZORGI_DB_H2_USER:
+      SHOP_MIRBOZORGI_DB_H2_PASS:
+      SHOP_MIRBOZORGI_DB_H2_NAME: 'productsdb'
+      SHOP_MIRBOZORGI_APP_LOG: 'false'
+      SHOP_MIRBOZORGI_SPRING_SECURITY_USERNAME: 'username'
+      SHOP_MIRBOZORGI_SPRING_SECURITY_PASSWORD: 'password_arsalan'
+      SHOP_MIRBOZORGI_LOGSTASH_SERVICE_NAME: 'shop'
+      SHOP_MIRBOZORGI_LOGSTASH_ENABLE: 'false'
+      SHOP_MIRBOZORGI_LOGSTASH_HOST: '127.0.0.1'
+      SHOP_MIRBOZORGI_LOGSTASH_PORT: 8089
+
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+networks:
+  mainnet:

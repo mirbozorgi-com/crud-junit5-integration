@@ -1,0 +1,43 @@
+package at.wirecube.examples.products.application.exception;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
+
+@Getter
+@Setter
+public class CustomException extends RuntimeException {
+
+  private static final long serialVersionUID = 1L;
+
+  private HttpStatus status;
+
+  private String msg;
+
+  private Object data;
+
+  public CustomException() {
+    this("error");
+  }
+
+  public CustomException(String msg) {
+    this(msg, HttpStatus.BAD_REQUEST);
+  }
+
+  public CustomException(String msg, HttpStatus status) {
+    this(msg, status, null);
+  }
+
+  public CustomException(String msg, HttpStatus status, Object data) {
+    super();
+    this.msg = msg;
+    this.status = status;
+    this.data = data;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("%s => %s", this.getMsg(), this.getData());
+  }
+
+}
